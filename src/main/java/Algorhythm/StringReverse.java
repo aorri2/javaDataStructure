@@ -1,5 +1,7 @@
 package Algorhythm;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class StringReverse {
@@ -11,20 +13,28 @@ public class StringReverse {
             inputStr[i] = sc.next();
         }
         StringReverse sample = new StringReverse();
-        String[] solution = sample.solution(size, inputStr);
+        List<String> solution = sample.solution(inputStr);
         for (String s : solution) {
             System.out.println(s);
         }
     }
 
-    public String[] solution(int size, String[] strArray){
-        String[] answer = new String[size];
-        int length = strArray.length;
-        for (int i = 0; i < length; i++) {
-            String str = strArray[i];
-            StringBuilder builder = new StringBuilder(str);
-            String reversedString = builder.reverse().toString();
-            answer[i] = reversedString;
+    public List<String> solution(String[] strArray){
+        List<String> answer = new ArrayList<>();
+        for (String str : strArray) {
+            int length = str.length();
+            char[] chars = str.toCharArray();
+            int left = 0;
+            int right = length-1;
+            while(left < right){
+                char tmp = chars[left];
+                chars[left] = chars[right];
+                chars[right] = tmp;
+                left++;
+                right--;
+            }
+            String tmp = String.valueOf(chars);
+            answer.add(tmp);
         }
         return answer;
     }
