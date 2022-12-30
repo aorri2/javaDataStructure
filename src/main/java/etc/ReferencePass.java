@@ -1,3 +1,5 @@
+package etc;
+
 public class ReferencePass {
     public static void main(String[] args) {
         ReferencePass reference = new ReferencePass();

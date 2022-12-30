@@ -1,3 +1,5 @@
+package etc;
+
 public class IntegerMaxValueTest {
     public static void main(String[] args) {
         String str1 = "";
